@@ -1,17 +1,148 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
   <title>ASA Holdings LLC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Colorado-based technology company building products for the anime and entertainment community.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0d12'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='28' fill='%23e8b4ff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 600px; margin: 80px auto; padding: 20px; color: #1a1a1a; }
-    h1 { font-size: 24px; }
-    p { line-height: 1.6; color: #444; }
+    :root {
+      --bg: #0b0d12;
+      --ink: #eef0f4;
+      --muted: #9aa3b2;
+      --accent: #c78bfa;
+      --accent-2: #7dd3fc;
+      --card: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    /* soft ambient glow */
+    .glow {
+      position: fixed;
+      width: 60vmax;
+      height: 60vmax;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.16;
+      pointer-events: none;
+    }
+    .glow.one { background: var(--accent); top: -25vmax; right: -20vmax; }
+    .glow.two { background: var(--accent-2); bottom: -30vmax; left: -22vmax; opacity: 0.10; }
+
+    main {
+      position: relative;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      padding: 64px 44px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .monogram {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 26px;
+      color: var(--bg);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, var(--ink) 30%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .rule {
+      width: 48px;
+      height: 2px;
+      margin: 0 auto 22px;
+      border: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 2px;
+    }
+
+    p.lede {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 42ch;
+      margin: 0 auto 34px;
+    }
+
+    p.contact {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    a:hover, a:focus-visible {
+      color: var(--accent-2);
+      border-bottom-color: var(--accent-2);
+    }
+
+    @media (max-width: 480px) {
+      main { padding: 48px 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      main { animation: none; }
+    }
   </style>
 </head>
 <body>
-  <h1>ASA Holdings LLC</h1>
-  <p>A Colorado-based technology company building products for the anime and entertainment community.</p>
-  <p>Contact: <a href="mailto:aaron@asaholdings.io">aaron@asaholdings.io</a></p>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+  <main>
+    <div class="monogram" aria-hidden="true">A</div>
+    <h1>ASA Holdings LLC</h1>
+    <hr class="rule">
+    <p class="lede">A Colorado-based technology company building products for the anime and entertainment community.</p>
+    <p class="contact">Contact: <a href="mailto:aaron@asaholdings.io">aaron@asaholdings.io</a></p>
+  </main>
 </body>
 </html>
